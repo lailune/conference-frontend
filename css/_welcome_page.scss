@@ -27,6 +27,11 @@ body.welcome-page {
         text-align: center;
 
         .header-text {
+
+            .welcome-logo{
+                object-fit: cover;
+            }
+
             display: flex;
             flex-direction: column;
             margin-top: $watermarkHeight + $welcomePageHeaderTextMarginTop;
