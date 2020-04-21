@@ -48,7 +48,7 @@ var interfaceConfig = {
      */
     TOOLBAR_BUTTONS: [
         'microphone', 'camera', 'closedcaptions', 'desktop', 'fullscreen',
-        'fodeviceselection', 'hangup', 'profile', 'info', 'chat', 'recording',
+        'fodeviceselection', 'hangup', 'profile', 'info', 'chat', 'recording', 'localrecording',
         'livestreaming', 'etherpad', 'sharedvideo', 'settings', 'raisehand',
         'videoquality', 'filmstrip', 'invite', 'feedback', 'stats', 'shortcuts',
         'tileview', /*'videobackgroundblur',*/ 'download', 'help', 'mute-everyone',
