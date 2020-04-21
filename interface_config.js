@@ -3,7 +3,7 @@
 var interfaceConfig = {
     // TO FIX: this needs to be handled from SASS variables. There are some
     // methods allowing to use variables both in css and js.
-    DEFAULT_BACKGROUND: '#474747',
+    DEFAULT_BACKGROUND: '#2f2f2f',
 
     /**
      * Whether or not the blurred video background for large video should be
@@ -23,7 +23,7 @@ var interfaceConfig = {
     SHOW_WATERMARK_FOR_GUESTS: false,
     SHOW_BRAND_WATERMARK: false,
     BRAND_WATERMARK_LINK: '',
-    SHOW_POWERED_BY: true,
+    SHOW_POWERED_BY: false,
     SHOW_DEEP_LINKING_IMAGE: false,
     GENERATE_ROOMNAMES_ON_WELCOME_PAGE: true,
     DISPLAY_WELCOME_PAGE_CONTENT: true,
@@ -32,7 +32,7 @@ var interfaceConfig = {
     NATIVE_APP_NAME: 'Конференция.онлайн',
     PROVIDER_NAME: 'Конференция.онлайн',
     LANG_DETECTION: true, // Allow i18n to detect the system language
-    INVITATION_POWERED_BY: true,
+    INVITATION_POWERED_BY: false,
 
     /**
      * If we should show authentication block in profile
