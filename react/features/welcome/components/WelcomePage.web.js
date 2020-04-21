@@ -187,7 +187,7 @@ class WelcomePage extends AbstractWelcomePage {
                     <div className = 'header-text'>
                         <Image
                             className = 'welcome-logo'
-                            src = '/images/logo-deep-linking.png' />
+                            src = '/images/logo.png' />
                         <h1 className = 'header-text-title'>
                             { t('welcomepage.title') }
                         </h1>
