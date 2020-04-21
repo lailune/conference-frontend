@@ -422,6 +422,8 @@ export function toURLString(obj: ?(Object | string)): ?string {
         break;
     }
 
+    console.log('TO URL STRING', str);
+
     return str;
 }
 
