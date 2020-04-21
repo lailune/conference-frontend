@@ -65,13 +65,10 @@
         z-index: $toolbarZ;
 
         .button-group-center,
+        .button-group-left,
         .button-group-right {
             display: flex;
             width: 33%;
-        }
-
-        .button-group-left{
-            display: flex;
         }
 
         .button-group-center {
