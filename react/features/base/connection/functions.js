@@ -54,7 +54,7 @@ export function getInviteURL(stateOrGetState: Function | Object): string {
         throw new Error('Can not get invite URL - the app is not ready');
     }
 
-    return getURLWithoutParams(locationURL).href;
+    return toURLString(getURLWithoutParams(locationURL).href);
 }
 
 /**
