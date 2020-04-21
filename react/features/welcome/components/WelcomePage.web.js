@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { translate } from '../../base/i18n';
-import { Watermarks } from '../../base/react';
+import {Watermarks, Image} from '../../base/react';
 import { connect } from '../../base/redux';
 import { isMobileBrowser } from '../../base/environment/utils';
 import { CalendarList } from '../../calendar-sync';
@@ -12,6 +12,7 @@ import { SettingsButton, SETTINGS_TABS } from '../../settings';
 
 import { AbstractWelcomePage, _mapStateToProps } from './AbstractWelcomePage';
 import Tabs from './Tabs';
+import {DROPBOX_LOGO} from "../../recording/components/Recording/styles.web";
 
 /**
  * The pattern used to validate room name.
@@ -184,6 +185,9 @@ class WelcomePage extends AbstractWelcomePage {
                     </div>
                     <div className = 'header-image' />
                     <div className = 'header-text'>
+                        <Image
+                            className = 'welcome-logo'
+                            src = '/images/logo-deep-linking.png' />
                         <h1 className = 'header-text-title'>
                             { t('welcomepage.title') }
                         </h1>
