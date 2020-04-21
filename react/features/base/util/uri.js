@@ -422,6 +422,14 @@ export function toURLString(obj: ?(Object | string)): ?string {
         break;
     }
 
+
+    //No port, password and etc support
+    if(str){
+        let url = new URL(str);
+        str = url.protocol+"//"+punycode.toUnicode(url.hostname)+url.pathname;
+    }
+
+
     console.log('TO URL STRING', str);
 
     return str;
