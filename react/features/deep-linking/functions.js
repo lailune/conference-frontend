@@ -56,7 +56,7 @@ export function getDeepLinkingPage(state) {
         return Promise.resolve();
     }
 
-  /*  if (isMobileBrowser()) { // mobile
+    if (isMobileBrowser()) { // mobile
         const mobileAppPromo
             = typeof interfaceConfig === 'object'
                 && interfaceConfig.MOBILE_APP_PROMO;
@@ -64,7 +64,7 @@ export function getDeepLinkingPage(state) {
         return Promise.resolve(
             typeof mobileAppPromo === 'undefined' || Boolean(mobileAppPromo)
                 ? DeepLinkingMobilePage : NoMobileApp);
-    }*/
+    }
 
     // desktop
     const { launchInWeb } = state['features/deep-linking'];
