@@ -169,8 +169,11 @@ export class AbstractWelcomePage extends Component<Props, *> {
      * @protected
      * @returns {void}
      */
-    _onJoin() {
-        const room = this.state.room || this.state.generatedRoomname;
+    _onJoin(joinRoom) {
+        let room = this.state.room || this.state.generatedRoomname;
+        if(joinRoom){
+            room = joinRoom;
+        }
 
         sendAnalytics(
             createWelcomePageEvent('clicked', 'joinButton', {
