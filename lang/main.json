@@ -771,6 +771,7 @@
         "enterRoomTitle": "Start a new meeting",
         "getHelp": "Get help",
         "roomNameAllowedChars": "Meeting name should not contain any of these characters: ?, &, :, ', \", %, #.",
+        "newRoomTitle": "Create new room",
         "go": "GO",
         "goSmall": "GO",
         "join": "CREATE / JOIN",

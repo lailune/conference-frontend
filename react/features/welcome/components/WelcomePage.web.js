@@ -2,15 +2,15 @@
 
 import React from 'react';
 
-import { translate } from '../../base/i18n';
+import {translate} from '../../base/i18n';
 import {Watermarks, Image} from '../../base/react';
-import { connect } from '../../base/redux';
-import { isMobileBrowser } from '../../base/environment/utils';
-import { CalendarList } from '../../calendar-sync';
-import { RecentList } from '../../recent-list';
-import { SettingsButton, SETTINGS_TABS } from '../../settings';
+import {connect} from '../../base/redux';
+import {isMobileBrowser} from '../../base/environment/utils';
+import {CalendarList} from '../../calendar-sync';
+import {RecentList} from '../../recent-list';
+import {SettingsButton, SETTINGS_TABS} from '../../settings';
 
-import { AbstractWelcomePage, _mapStateToProps } from './AbstractWelcomePage';
+import {AbstractWelcomePage, _mapStateToProps} from './AbstractWelcomePage';
 import Tabs from './Tabs';
 import {DROPBOX_LOGO} from "../../recording/components/Recording/styles.web";
 
@@ -54,7 +54,7 @@ class WelcomePage extends AbstractWelcomePage {
             ...this.state,
 
             generateRoomnames:
-                interfaceConfig.GENERATE_ROOMNAMES_ON_WELCOME_PAGE,
+            interfaceConfig.GENERATE_ROOMNAMES_ON_WELCOME_PAGE,
             selectedTab: 0
         };
 
@@ -123,16 +123,16 @@ class WelcomePage extends AbstractWelcomePage {
         document.body.classList.add('welcome-page');
         document.title = interfaceConfig.APP_NAME;
 
-        if (this.state.generateRoomnames) {
+        if(this.state.generateRoomnames) {
             this._updateRoomname();
         }
 
-        if (this._shouldShowAdditionalContent()) {
+        if(this._shouldShowAdditionalContent()) {
             this._additionalContentRef.appendChild(
                 this._additionalContentTemplate.content.cloneNode(true));
         }
 
-        if (this._shouldShowAdditionalToolbarContent()) {
+        if(this._shouldShowAdditionalToolbarContent()) {
             this._additionalToolbarContentRef.appendChild(
                 this._additionalToolbarContentTemplate.content.cloneNode(true)
             );
@@ -158,81 +158,89 @@ class WelcomePage extends AbstractWelcomePage {
      * @returns {ReactElement|null}
      */
     render() {
-        const { t } = this.props;
-        const { APP_NAME } = interfaceConfig;
+        const {t} = this.props;
+        const {APP_NAME} = interfaceConfig;
         const showAdditionalContent = this._shouldShowAdditionalContent();
         const showAdditionalToolbarContent = this._shouldShowAdditionalToolbarContent();
         const showResponsiveText = this._shouldShowResponsiveText();
 
         return (
             <div
-                className = { `welcome ${showAdditionalContent
-                    ? 'with-content' : 'without-content'}` }
-                id = 'welcome_page'>
-                <div className = 'welcome-watermark'>
-                    <Watermarks />
+                className={`welcome ${showAdditionalContent
+                    ? 'with-content' : 'without-content'}`}
+                id='welcome_page'>
+                <div className='welcome-watermark'>
+                    <Watermarks/>
                 </div>
-                <div className = 'header'>
-                    <div className = 'welcome-page-settings'>
+                <div className='header'>
+                    <div className='welcome-page-settings'>
                         <SettingsButton
-                            defaultTab = { SETTINGS_TABS.CALENDAR } />
-                        { showAdditionalToolbarContent
+                            defaultTab={SETTINGS_TABS.CALENDAR}/>
+                        {showAdditionalToolbarContent
                             ? <div
-                                className = 'settings-toolbar-content'
-                                ref = { this._setAdditionalToolbarContentRef } />
+                                className='settings-toolbar-content'
+                                ref={this._setAdditionalToolbarContentRef}/>
                             : null
                         }
                     </div>
-                    <div className = 'header-image' />
-                    <div className = 'header-text'>
+                    <div className='header-image'/>
+                    <div className='header-text'>
                         <Image
-                            className = 'welcome-logo'
-                            src = '/images/logo.png' />
-                        <h1 className = 'header-text-title'>
-                            { t('welcomepage.title') }
+                            className='welcome-logo'
+                            src='/images/logo.png'/>
+                        <h1 className='header-text-title'>
+                            {t('welcomepage.title')}
                         </h1>
-                        <p className = 'header-text-description'>
-                            { t('welcomepage.appDescription',
-                                { app: APP_NAME }) }
+                        <p className='header-text-description'>
+                            {t('welcomepage.appDescription',
+                                {app: APP_NAME})}
                         </p>
                     </div>
-                    <div id = 'enter_room'>
-                        <div className = 'enter-room-input-container'>
-                            <div className = 'enter-room-title'>
-                                { t('welcomepage.enterRoomTitle') }
+                    <div id='enter_room'>
+                        <div className='enter-room-input-container'>
+                            <div className='enter-room-title'>
+                                {t('welcomepage.enterRoomTitle')}
                             </div>
-                            <form onSubmit = { this._onFormSubmit }>
+                            <form onSubmit={this._onFormSubmit}>
                                 <input
-                                    autoFocus = { true }
-                                    className = 'enter-room-input'
-                                    id = 'enter_room_field'
-                                    onChange = { this._onRoomChange }
-                                    pattern = { ROOM_NAME_VALIDATE_PATTERN_STR }
-                                    placeholder = { this.state.roomPlaceholder }
-                                    ref = { this._setRoomInputRef }
-                                    title = { t('welcomepage.roomNameAllowedChars') }
-                                    type = 'text'
-                                    value = { this.state.room } />
+                                    autoFocus={true}
+                                    className='enter-room-input'
+                                    id='enter_room_field'
+                                    onChange={this._onRoomChange}
+                                    pattern={ROOM_NAME_VALIDATE_PATTERN_STR}
+                                    placeholder={this.state.roomPlaceholder}
+                                    ref={this._setRoomInputRef}
+                                    title={t('welcomepage.roomNameAllowedChars')}
+                                    type='text'
+                                    value={this.state.room}/>
                             </form>
                         </div>
                         <div
-                            className = 'welcome-page-button'
-                            id = 'enter_room_button'
-                            onClick = { this._onFormSubmit }>
+                            className='welcome-page-button'
+                            id='enter_room_button'
+                            onClick={this._onFormSubmit}>
                             {
                                 showResponsiveText
                                     ? t('welcomepage.goSmall')
                                     : t('welcomepage.go')
                             }
                         </div>
+                        <div
+                            className='welcome-page-button'
+                            id='new_room_button'
+                            onClick={this._onNewRoom}>
+                            {
+                                t('welcomepage.newRoomTitle')
+                            }
+                        </div>
                     </div>
-                    { this._renderTabs() }
+                    {this._renderTabs()}
                 </div>
-                { showAdditionalContent
+                {showAdditionalContent
                     ? <div
-                        className = 'welcome-page-content'
-                        ref = { this._setAdditionalContentRef } />
-                    : null }
+                        className='welcome-page-content'
+                        ref={this._setAdditionalContentRef}/>
+                    : null}
             </div>
         );
     }
@@ -247,9 +255,15 @@ class WelcomePage extends AbstractWelcomePage {
     _onFormSubmit(event) {
         event.preventDefault();
 
-        if (!this._roomInputRef || this._roomInputRef.reportValidity()) {
+        if(!this._roomInputRef || this._roomInputRef.reportValidity()) {
             this._onJoin();
         }
+    }
+
+    _onNewRoom(event) {
+        event.preventDefault();
+        this._onRoomChange((Math.random() * (new Date().getTime())).toString(36).replace(/[^a-z]+/g, ''));
+        this._onJoin();
     }
 
     /**
@@ -275,7 +289,7 @@ class WelcomePage extends AbstractWelcomePage {
      * @returns {void}
      */
     _onTabSelected(tabIndex) {
-        this.setState({ selectedTab: tabIndex });
+        this.setState({selectedTab: tabIndex});
     }
 
     /**
@@ -285,37 +299,37 @@ class WelcomePage extends AbstractWelcomePage {
      * @returns {ReactElement|null}
      */
     _renderTabs() {
-        if (isMobileBrowser()) {
+        if(isMobileBrowser()) {
             return null;
         }
 
-        const { _calendarEnabled, _recentListEnabled, t } = this.props;
+        const {_calendarEnabled, _recentListEnabled, t} = this.props;
 
         const tabs = [];
 
-        if (_calendarEnabled) {
+        if(_calendarEnabled) {
             tabs.push({
                 label: t('welcomepage.calendar'),
-                content: <CalendarList />
+                content: <CalendarList/>
             });
         }
 
-        if (_recentListEnabled) {
+        if(_recentListEnabled) {
             tabs.push({
                 label: t('welcomepage.recentList'),
-                content: <RecentList />
+                content: <RecentList/>
             });
         }
 
-        if (tabs.length === 0) {
+        if(tabs.length === 0) {
             return null;
         }
 
         return (
             <Tabs
-                onSelect = { this._onTabSelected }
-                selected = { this.state.selectedTab }
-                tabs = { tabs } />);
+                onSelect={this._onTabSelected}
+                selected={this.state.selectedTab}
+                tabs={tabs}/>);
     }
 
     /**
@@ -392,7 +406,7 @@ class WelcomePage extends AbstractWelcomePage {
      * @returns {boolean}
      */
     _shouldShowResponsiveText() {
-        const { innerWidth } = window;
+        const {innerWidth} = window;
 
         return innerWidth <= WINDOW_WIDTH_THRESHOLD;
     }
