@@ -198,6 +198,15 @@ class WelcomePage extends AbstractWelcomePage {
                         </p>
                     </div>
                     <div id='enter_room'>
+                        <div
+                            className='welcome-page-create-button'
+                            id='new_room_button'
+                            onClick={this._onNewRoom}>
+                            {
+                                t('welcomepage.newRoomTitle')
+                            }
+                        </div>
+                        <div style={{margin: '10px'}}>{t('welcomepage.or')}</div>
                         <div className='enter-room-input-container'>
                             <div className='enter-room-title'>
                                 {t('welcomepage.enterRoomTitle')}
@@ -226,14 +235,7 @@ class WelcomePage extends AbstractWelcomePage {
                                     : t('welcomepage.go')
                             }
                         </div>
-                        <div
-                            className='welcome-page-create-button'
-                            id='new_room_button'
-                            onClick={this._onNewRoom}>
-                            {
-                                t('welcomepage.newRoomTitle')
-                            }
-                        </div>
+
                     </div>
                     {this._renderTabs()}
                 </div>
