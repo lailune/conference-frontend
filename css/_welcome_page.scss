@@ -169,6 +169,20 @@ body.welcome-page {
         cursor: pointer;
     }
 
+    .welcome-page-create-button{
+        min-width: $welcomePageButtonMinWidth;
+        height: $welcomePageButtonHeight;
+        font-size: $welcomePageButtonFontSize;
+        font-weight: $welcomePageButtonFontWeight;
+        background: #0074E0;
+        border-radius: $welcomePageButtonBorderRadius;
+        color: #FFFFFF;
+        text-align: center;
+        vertical-align: middle;
+        line-height: $welcomePageButtonLineHeight;
+        cursor: pointer;
+    }
+
     .welcome-page-settings {
         color: $welcomePageDescriptionColor;
         position: absolute;

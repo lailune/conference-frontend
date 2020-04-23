@@ -198,6 +198,19 @@ class WelcomePage extends AbstractWelcomePage {
                         </p>
                     </div>
                     <div id='enter_room'>
+                        <div
+                            className='welcome-page-create-button'
+                            id='new_room_button'
+                            onClick={this._onNewRoom}>
+                            {
+                                t('welcomepage.newRoomTitle')
+                            }
+                        </div>
+
+
+                        <h2 style="margin: 10px;">{ t('welcomepage.or') }</h2>
+
+
                         <div className='enter-room-input-container'>
                             <div className='enter-room-title'>
                                 {t('welcomepage.enterRoomTitle')}
@@ -226,14 +239,7 @@ class WelcomePage extends AbstractWelcomePage {
                                     : t('welcomepage.go')
                             }
                         </div>
-                        <div
-                            className='welcome-page-button'
-                            id='new_room_button'
-                            onClick={this._onNewRoom}>
-                            {
-                                t('welcomepage.newRoomTitle')
-                            }
-                        </div>
+
                     </div>
                     {this._renderTabs()}
                 </div>
@@ -263,7 +269,7 @@ class WelcomePage extends AbstractWelcomePage {
 
     _onNewRoom(event) {
         event.preventDefault();
-        let room = ((Math.random() * (new Date().getTime())).toString(36).replace(/[^a-z]+/g, ''));
+        let room = ((Math.random() * (new Date().getTime())).toString(36).replace(/[^a-z]+/g, '')) + ((Math.random() * (new Date().getTime())).toString(36).replace(/[^a-z]+/g, ''));
         //this.setState({room: room, roomPlaceholder: room});
         this._onJoin(room);
     }
