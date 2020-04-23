@@ -71,6 +71,10 @@ body.welcome-page {
             padding: $welcomePageEnterRoomPadding;
             border-radius: $welcomePageEnterRoomBorderRadius;
 
+            @media (max-width: 410px) {
+                display: block;
+            }
+            
             .enter-room-input-container {
                 width: 100%;
                 padding: $welcomePageEnterRoomInputContainerPadding;
@@ -167,6 +171,12 @@ body.welcome-page {
         vertical-align: middle;
         line-height: $welcomePageButtonLineHeight;
         cursor: pointer;
+        @media (max-width: 410px) {
+            width: 100%;
+            margin-top: 20px;
+            background: #00cd5b;
+        }
+
     }
 
     .welcome-page-create-button{
