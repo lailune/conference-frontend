@@ -5,7 +5,8 @@
 .cjMOOK {
   bottom: calc(#{$newToolbarSizeWithPadding}) !important;
   @media (max-width: 410px) {
-    left: 0;
+    left: 0!important;
+    width: 90%;
   }
 }
 
