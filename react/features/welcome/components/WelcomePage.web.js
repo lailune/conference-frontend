@@ -208,7 +208,9 @@ class WelcomePage extends AbstractWelcomePage {
                         </div>
 
 
-                        <h2 style="margin: 10px;">{ t('welcomepage.or') }</h2>
+                        <div style="margin: 10px;">
+                            {t('welcomepage.or')}
+                        </div>
 
 
                         <div className='enter-room-input-container'>
