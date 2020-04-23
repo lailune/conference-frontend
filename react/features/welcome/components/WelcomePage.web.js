@@ -262,7 +262,7 @@ class WelcomePage extends AbstractWelcomePage {
 
     _onNewRoom(event) {
         event.preventDefault();
-        this._onRoomChange((Math.random() * (new Date().getTime())).toString(36).replace(/[^a-z]+/g, ''));
+        this.state.room = ((Math.random() * (new Date().getTime())).toString(36).replace(/[^a-z]+/g, ''));
         this._onJoin();
     }
 
