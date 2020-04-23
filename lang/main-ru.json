@@ -329,7 +329,7 @@
         "password": "$t(lockRoomPasswordUppercase):",
         "title": "Поделиться",
         "tooltip": "Поделитесь ссылкой и номером для подключения к этой конференции",
-        "label": "Информация о конференции"
+        "label": "Поделиться"
     },
     "inviteDialog": {
         "alertText": "Не удалось пригласить некоторых участников.",
@@ -625,7 +625,7 @@
         "documentOpen": "Открыть общий документ",
         "download": "Скачать приложение",
         "enterFullScreen": "Полный экран",
-        "enterTileView": "Общий план",
+        "enterTileView": "Плитки",
         "exitFullScreen": "Полный экран",
         "exitTileView": "Крупный план",
         "feedback": "Оставить отзыв",
