@@ -772,6 +772,7 @@
         "getHelp": "Get help",
         "roomNameAllowedChars": "Meeting name should not contain any of these characters: ?, &, :, ', \", %, #.",
         "newRoomTitle": "Create new room",
+        "conferenceIdPlaceholder": "Conference ID",
         "or": "OR",
         "go": "GO",
         "goSmall": "GO",

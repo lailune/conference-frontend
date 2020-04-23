@@ -749,6 +749,7 @@
         "enterRoomTitle": "Войти в конференцию",
         "newRoomTitle": "Создать новую конференцию",
         "roomNameAllowedChars": "Название конференции не должно содержать следующие символы: ?, &, :, ', \", %, #.",
+        "conferenceIdPlaceholder": "ID конференции",
         "or": "ИЛИ",
         "go": "ОК",
         "goSmall": "ОК",
