@@ -423,14 +423,14 @@ export function toURLString(obj: ?(Object | string)): ?string {
     }
 
 
-    //No port, password and etc support
-    if(str){
-        let url = new URL(str);
-        str = url.protocol+"//"+punycode.toUnicode(url.hostname)+url.pathname;
+    try {
+        //No port, password and etc support
+        if(str) {
+            let url = new URL(str);
+            str = url.protocol + "//" + punycode.toUnicode(url.hostname) + url.pathname;
+        }
+    }catch (e) {
     }
-
-
-    console.log('TO URL STRING', str);
 
     return str;
 }
