@@ -139,7 +139,7 @@ class SettingsView extends AbstractSettingsView<Props, State> {
                         <TextInput
                             autoCorrect = { false }
                             onChangeText = { this._onChangeDisplayName }
-                            placeholder = 'John Doe'
+                            placeholder = 'Без имени'
                             value = { displayName } />
                     </FormRow>
                     <FormRow
