@@ -17,11 +17,11 @@ import { ADD_KNOWN_DOMAINS } from './actionTypes';
  * out of the Andorid manifest.
  */
 export const DEFAULT_STATE = [
+    'xn--90abj.xn--e1aajfpcds8ay4h.xn--80asehdb',
     'alpha.jitsi.net',
     'beta.meet.jit.si',
     'meet.jit.si',
-    '8x8.vc',
-    'xn--90abj.xn--e1aajfpcds8ay4h.xn--80asehdb'
+    '8x8.vc'
 ];
 
 const STORE_NAME = 'features/base/known-domains';

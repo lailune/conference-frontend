@@ -94,7 +94,7 @@ var config = {
 
     // Start calls with audio muted. Unlike the option above, this one is only
     // applied locally. FIXME: having these 2 options is confusing.
-    // startWithAudioMuted: false,
+     startWithAudioMuted: true,
 
     // Enabling it (with #params) will disable local audio output of remote
     // participants and to enable it back a reload is needed.
@@ -133,7 +133,7 @@ var config = {
 
     // Start calls with video muted. Unlike the option above, this one is only
     // applied locally. FIXME: having these 2 options is confusing.
-    // startWithVideoMuted: false,
+     startWithVideoMuted: true,
 
     // If set to true, prefer to use the H.264 video codec (if supported).
     // Note that it's not recommended to do this because simulcast is not
@@ -289,6 +289,9 @@ var config = {
     // and microsoftApiApplicationClientID
     // enableCalendarIntegration: false,
 
+    // When 'true', it shows an intermediate page before joining, where the user can  configure its devices.
+    // prejoinPageEnabled: false,
+
     // Stats
     //
 
@@ -367,6 +370,10 @@ var config = {
     analytics: {
         // The Google Analytics Tracking ID:
         // googleAnalyticsTrackingId: 'your-tracking-id-UA-123456-1'
+
+        // Matomo configuration:
+        // matomoEndpoint: 'https://your-matomo-endpoint/',
+        // matomoSiteID: '42',
 
         // The Amplitude APP Key:
         // amplitudeAPPKey: '<APP_KEY>'

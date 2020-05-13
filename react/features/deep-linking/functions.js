@@ -66,8 +66,6 @@ export function getDeepLinkingPage(state) {
                 ? DeepLinkingMobilePage : NoMobileApp);
     }
 
-    //console.log('MOBILE CHECK')
-
     // desktop
     const { launchInWeb } = state['features/deep-linking'];
 
