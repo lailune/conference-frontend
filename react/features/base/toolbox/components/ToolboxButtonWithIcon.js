@@ -103,7 +103,7 @@ export default class ToolboxButtonWithIcon extends Component<Props, State> {
         } = this.props;
 
         const iconProps = {};
-        let size = 9;
+        let size = 20;
 
         if (iconDisabled) {
             iconProps.className
@@ -114,7 +114,7 @@ export default class ToolboxButtonWithIcon extends Component<Props, State> {
 
             if (this.state.isHovered) {
                 iconProps.className = `${iconProps.className} settings-button-small-icon--hovered`;
-                size = 11;
+                size = 25;
             }
         }
 
