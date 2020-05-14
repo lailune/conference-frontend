@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 import AudioMuteButton from '../AudioMuteButton';
 import { isAudioSettingsButtonDisabled } from '../../functions';
-import { IconArrowDown } from '../../../base/icons';
+import { IconSettings } from '../../../base/icons';
 import JitsiMeetJS from '../../../base/lib-jitsi-meet/_';
 import { ToolboxButtonWithIcon } from '../../../base/toolbox';
 import { connect } from '../../../base/redux';
@@ -122,7 +122,7 @@ class AudioSettingsButton extends Component<Props, State> {
         return visible ? (
             <AudioSettingsPopup>
                 <ToolboxButtonWithIcon
-                    icon = { IconArrowDown }
+                    icon = { IconSettings }
                     iconDisabled = { settingsDisabled }
                     onIconClick = { onAudioOptionsClick }>
                     <AudioMuteButton />
