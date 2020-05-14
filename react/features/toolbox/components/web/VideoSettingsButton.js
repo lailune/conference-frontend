@@ -5,7 +5,7 @@ import { isVideoSettingsButtonDisabled } from '../../functions';
 import { toggleVideoSettings, VideoSettingsPopup } from '../../../settings';
 import VideoMuteButton from '../VideoMuteButton';
 import JitsiMeetJS from '../../../base/lib-jitsi-meet/_';
-import { IconArrowDown } from '../../../base/icons';
+import {IconArrowDown, IconSettings} from '../../../base/icons';
 import { connect } from '../../../base/redux';
 import { ToolboxButtonWithIcon } from '../../../base/toolbox';
 import { getMediaPermissionPromptVisibility } from '../../../overlay';
@@ -121,7 +121,7 @@ class VideoSettingsButton extends Component<Props, State> {
         return visible ? (
             <VideoSettingsPopup>
                 <ToolboxButtonWithIcon
-                    icon = { IconArrowDown }
+                    icon = { IconSettings }
                     iconDisabled = { iconDisabled }
                     onIconClick = { onVideoOptionsClick }>
                     <VideoMuteButton />
