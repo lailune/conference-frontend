@@ -55,11 +55,11 @@ export default class JitsiStreamBlurEffect {
      * @returns {void}
      */
     async _onMaskFrameTimer(response: Object) {
-        console.log('FRAME');
         if (response.data.id === INTERVAL_TIMEOUT) {
             if (!this._maskInProgress) {
-                console.log('FRAME2');
+                console.time('FRAME')
                 await this._renderMask();
+                console.timeEnd('FRAME')
             }
         }
     }
