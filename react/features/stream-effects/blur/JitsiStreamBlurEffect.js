@@ -90,6 +90,24 @@ export default class JitsiStreamBlurEffect {
         }
 
         this._maskInProgress = false;
+
+        //TODO: Test fast blur:
+        /*
+        function fastBlur(canvas, ratio){
+            const height = canvas.height;
+            const width = canvas.width;
+
+            const bHeight = Math.round(height / ratio);
+            const bWidth = Math.round(width / ratio);
+
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(canvas, 0, 0, bWidth, bHeight);
+            ctx.drawImage(canvas, 0, 0, bWidth, bHeight,0,0, width, height);
+        }
+
+        fastBlur(canvas, 2);
+         */
+
         bodyPix.drawBokehEffect(
             this._outputCanvasElement,
             this._inputVideoElement,
