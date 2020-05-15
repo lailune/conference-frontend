@@ -51,7 +51,7 @@ var interfaceConfig = {
         'fodeviceselection', 'hangup', 'profile', 'info', 'chat', 'recording', 'localrecording',
         'livestreaming', 'etherpad', 'sharedvideo', 'settings', 'raisehand',
         'videoquality', 'filmstrip', 'invite', 'feedback', 'stats', 'shortcuts',
-        'tileview', /*'videobackgroundblur',*/ 'download', 'help', 'mute-everyone',
+        'tileview', 'videobackgroundblur', 'download', 'help', 'mute-everyone',
         'e2ee'
     ],
 
