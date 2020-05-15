@@ -46,9 +46,9 @@ class VideoBlurButton extends AbstractButton<Props, *> {
      * @protected
      * @returns {ReactElement}
      */
-    _getElementAfter() {
+    /*_getElementAfter() {
         return <BetaTag />;
-    }
+    }*/
 
     /**
      * Handles clicking / pressing the button, and toggles the blur effect
