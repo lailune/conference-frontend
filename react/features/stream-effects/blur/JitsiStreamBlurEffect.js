@@ -9,6 +9,12 @@ import {
 } from './TimerWorker';
 
 /**
+ * Выполнять размытие только каждые 2 кадра
+ * @type {number}
+ */
+export const FRAME_REPEAT_THRESHOLD = 2;
+
+/**
  * Represents a modified MediaStream that adds blur to video background.
  * <tt>JitsiStreamBlurEffect</tt> does the processing of the original
  * video stream.
@@ -25,6 +31,7 @@ export default class JitsiStreamBlurEffect {
     isEnabled: Function;
     startEffect: Function;
     stopEffect: Function;
+    _frameCounter: number;
 
     /**
      * Represents a modified video MediaStream track.
@@ -43,7 +50,7 @@ export default class JitsiStreamBlurEffect {
         this._outputCanvasElement.getContext('2d');
         this._inputVideoElement = document.createElement('video');
 
-        this._maskFrameTimerWorker = new Worker(timerWorkerScript, { name: 'Blur effect worker' });
+        this._maskFrameTimerWorker = new Worker(timerWorkerScript, {name: 'Blur effect worker'});
         this._maskFrameTimerWorker.onmessage = this._onMaskFrameTimer;
     }
 
@@ -55,8 +62,8 @@ export default class JitsiStreamBlurEffect {
      * @returns {void}
      */
     async _onMaskFrameTimer(response: Object) {
-        if (response.data.id === INTERVAL_TIMEOUT) {
-            if (!this._maskInProgress) {
+        if(response.data.id === INTERVAL_TIMEOUT) {
+            if(!this._maskInProgress) {
                 console.time('FRAME')
                 await this._renderMask();
                 console.timeEnd('FRAME')
@@ -71,12 +78,17 @@ export default class JitsiStreamBlurEffect {
      * @returns {void}
      */
     async _renderMask() {
+        this._frameCounter++;
         this._maskInProgress = true;
-        this._segmentationData = await this._bpModel.segmentPerson(this._inputVideoElement, {
-            internalResolution: 0.1, // resized to 0.5 times of the original resolution before inference
-            maxDetections: 1, // max. number of person poses to detect per image
-            segmentationThreshold: 0.7 // represents probability that a pixel belongs to a person
-        });
+
+        if(this._frameCounter % FRAME_REPEAT_THRESHOLD === 0) {
+            this._segmentationData = await this._bpModel.segmentPerson(this._inputVideoElement, {
+                internalResolution: 0.1, // resized to 0.5 times of the original resolution before inference
+                maxDetections: 1, // max. number of person poses to detect per image
+                segmentationThreshold: 0.7 // represents probability that a pixel belongs to a person
+            });
+        }
+
         this._maskInProgress = false;
         bodyPix.drawBokehEffect(
             this._outputCanvasElement,
@@ -106,10 +118,12 @@ export default class JitsiStreamBlurEffect {
      */
     startEffect(stream: MediaStream) {
         const firstVideoTrack = stream.getVideoTracks()[0];
-        const { height, frameRate, width }
+        const {height, frameRate, width}
             = firstVideoTrack.getSettings ? firstVideoTrack.getSettings() : firstVideoTrack.getConstraints();
 
-        console.log('GET VIDEO', { height, frameRate, width });
+        console.log('GET VIDEO', {height, frameRate, width});
+
+        this._frameCounter = 0;
 
         this._outputCanvasElement.width = parseInt(width, 10);
         this._outputCanvasElement.height = parseInt(height, 10);
