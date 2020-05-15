@@ -12,7 +12,7 @@ import {
  * Выполнять размытие только каждые 2 кадра
  * @type {number}
  */
-export const FRAME_REPEAT_THRESHOLD = 3;
+export const FRAME_REPEAT_THRESHOLD = 5;
 
 /**
  * Represents a modified MediaStream that adds blur to video background.
