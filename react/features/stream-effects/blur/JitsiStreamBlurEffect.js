@@ -107,6 +107,8 @@ export default class JitsiStreamBlurEffect {
         const { height, frameRate, width }
             = firstVideoTrack.getSettings ? firstVideoTrack.getSettings() : firstVideoTrack.getConstraints();
 
+        console.log('GET VIDEO', { height, frameRate, width });
+
         this._outputCanvasElement.width = parseInt(width, 10);
         this._outputCanvasElement.height = parseInt(height, 10);
         this._inputVideoElement.width = parseInt(width, 10);
