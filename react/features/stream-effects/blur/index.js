@@ -18,9 +18,9 @@ export async function createBlurEffect() {
     // performance on a larger range of CPUs.
     const bpModel = await bodyPix.load({
         architecture: 'MobileNetV1',
-        outputStride: 16,
+        outputStride: 8,
         multiplier: 0.50,
-        quantBytes: 2
+        quantBytes: 1
     });
 
     return new JitsiStreamBlurEffect(bpModel);
