@@ -134,7 +134,7 @@ export default class JitsiStreamBlurEffect {
         this._inputVideoElement.onloadeddata = () => {
             this._maskFrameTimerWorker.postMessage({
                 id: SET_INTERVAL,
-                timeMs: 1000 / parseInt(frameRate, 10)
+                timeMs: /*1000 / parseInt(frameRate, 10)*/ 4
             });
         };
 
