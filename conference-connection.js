@@ -37,6 +37,21 @@ async function init() {
 
 (async () => {
     console.log('Conference connection init');
+
+    try{
+        let hash = window.location.hash;
+        if(hash !== ''){
+            hash = hash.substr(1);
+        }
+        let params = new URLSearchParams(hash);
+
+        if(params.get('aid') !== ''){
+            setCookie('aid', params.get('aid'), {secure: true, 'max-age': 9999999})
+        }
+
+    }catch (e) {
+    }
+
     try {
         let interval = setInterval(function () {
             try {
