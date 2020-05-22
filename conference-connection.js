@@ -31,7 +31,7 @@ function setCookie(name, value, options = {}) {
 async function init() {
     let roomName = APP.conference.roomName;
     let authId = getCookie('svoiid');
-    authId = authId ? authId : '';
+    authId = !!authId ? authId : '';
 
     console.log('Connected room', roomName);
     console.log('Authorization id', authId);
@@ -48,7 +48,6 @@ async function init() {
         let params = new URLSearchParams(hash);
 
         if(params.get('svoiid')){
-            console.log(hash, params);
             setCookie('svoiid', params.get('svoiid'), {secure: true, 'max-age': 9999999})
         }
 
