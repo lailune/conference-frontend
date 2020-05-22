@@ -12,7 +12,7 @@ async function init() {
     try {
         let interval = setInterval(function () {
             try {
-                if(typeof APP.conference.roomName !== undefined) {
+                if(typeof APP.conference.roomName !== "undefined") {
                     clearInterval(interval);
                     init();
                 }
