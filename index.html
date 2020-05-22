@@ -147,22 +147,7 @@
     <script><!--#include virtual="/interface_config.js" --></script>
     <script><!--#include virtual="/logging_config.js" --></script>
     <script src="libs/lib-jitsi-meet.min.js?v=139"></script>
-    <script>
-      var loadJS = function(url, implementationCode, location){
-        var scriptTag = document.createElement('script');
-        scriptTag.src = url;
 
-        scriptTag.onload = implementationCode;
-        scriptTag.onreadystatechange = implementationCode;
-
-        location.appendChild(scriptTag);
-      };
-
-      loadJS('libs/app.bundle.min.js?v=139', ()=>{
-        console.log('BUNDLE LOADED');
-      }, document.body);
-
-    </script>
    <script src="libs/app.bundle.min.js?v=139"></script>
     <!--#include virtual="title.html" -->
     <!--#include virtual="plugin.head.html" -->
@@ -170,7 +155,23 @@
     <!--#include virtual="static/settingsToolbarAdditionalContent.html" -->
   </head>
   <body>
-    <!--#include virtual="body.html" -->
-    <div id="react"></div>
+  <script>
+    var loadJS = function (url, implementationCode, location) {
+      var scriptTag = document.createElement('script');
+      scriptTag.src = url;
+
+      scriptTag.onload = implementationCode;
+      scriptTag.onreadystatechange = implementationCode;
+
+      location.appendChild(scriptTag);
+    };
+
+    loadJS('libs/app.bundle.min.js?v=139', () => {
+      console.log('BUNDLE LOADED');
+    }, document.body);
+
+  </script>
+  <!--#include virtual="body.html" -->
+  <div id="react"></div>
   </body>
 </html>
