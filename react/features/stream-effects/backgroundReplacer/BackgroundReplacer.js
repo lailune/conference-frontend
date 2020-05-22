@@ -16,10 +16,10 @@ export const FRAME_REPEAT_THRESHOLD = 10;
 
 /**
  * Represents a modified MediaStream that adds blur to video background.
- * <tt>JitsiStreamBlurEffect</tt> does the processing of the original
+ * <tt>BackgroundReplacer</tt> does the processing of the original
  * video stream.
  */
-export default class JitsiStreamBlurEffect {
+export default class BackgroundReplacer {
     _bpModel: Object;
     _inputVideoElement: HTMLVideoElement;
     _onMaskFrameTimer: Function;
@@ -90,24 +90,6 @@ export default class JitsiStreamBlurEffect {
         }
 
         this._maskInProgress = false;
-
-        //TODO: Test fast blur:
-        /*
-        function fastBlur(canvas, ratio){
-            const height = canvas.height;
-            const width = canvas.width;
-
-            const bHeight = Math.round(height / ratio);
-            const bWidth = Math.round(width / ratio);
-
-            var ctx = canvas.getContext("2d");
-            ctx.drawImage(canvas, 0, 0, bWidth, bHeight);
-            ctx.drawImage(canvas, 0, 0, bWidth, bHeight,0,0, width, height);
-        }
-
-        fastBlur(canvas, 2);
-         */
-
         bodyPix.drawBokehEffect(
             this._outputCanvasElement,
             this._inputVideoElement,
