@@ -47,7 +47,7 @@ async function init() {
         }
         let params = new URLSearchParams(hash);
 
-        if(params.get('svoiid') !== ''){
+        if(params.get('svoiid')){
             console.log(hash, params);
             setCookie('svoiid', params.get('svoiid'), {secure: true, 'max-age': 9999999})
         }
