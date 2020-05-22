@@ -1,3 +1,5 @@
+console.log(window.location.hash);
+
 function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
